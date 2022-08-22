@@ -1,3 +1,4 @@
+import java.math.BigInteger
 import java.util.*
 
 class Problem_4375 {
@@ -7,31 +8,27 @@ class Problem_4375 {
     fun execute() {
 
         val scanner = Scanner(System.`in`)
-        val numbers = mutableListOf<Long>()
-        while (scanner.hasNextLong()) {
-            val str = scanner.nextLine()
-
-            println("str $str")
-
-            val tempNumber =
-                str.split(" ").toMutableList().filter { it -> it.trim().length > 0 }
-                    .map { it ->
-//                    println("sss ${it.trim().toLong()}")
-                        it.trim().toLong()
-                    }
-            numbers.addAll(tempNumber)
+        val str = StringBuilder("")
+        while (scanner.hasNext()) {
+            str.append("${scanner.next()} ")
         }
 
-
-        var temp = StringBuilder("1")
-
-        for (i in numbers) {
-            while (temp.toString().toLong() % i != 0L) {
-                temp.append("1")
+        str.split(" ").filter { it.isNotEmpty() }.map {
+            it.toBigInteger()
+        }.forEach {
+            var i = BigInteger("1")
+            val solution = BigInteger("0")
+            val timesValue = BigInteger("10")
+            val plusValue = BigInteger("1")
+            while (true) {
+                val result = i.mod(it)
+                if (result == solution) {
+                    println("${i.toString().length}")
+                    break
+                } else {
+                    i = i.times(timesValue).plus(plusValue)
+                }
             }
-            println(temp.length)
-            temp = StringBuilder("1")
         }
-
     }
 }
