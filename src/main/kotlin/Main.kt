@@ -9,6 +9,6 @@ fun main(args: Array<String>) {
 //    problem10430.execute()
 
     val problem2480 = Problem_2480()
-    problem2480.execute()
+    problem2480.execute2()
 
 }

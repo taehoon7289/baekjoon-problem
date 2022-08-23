@@ -36,5 +36,42 @@ class Problem_2480 {
 
     }
 
+    fun execute2() {
+
+        val sc = Scanner(System.`in`)
+        val a = sc.nextInt()
+        val b = sc.nextInt()
+        val c = sc.nextInt()
+
+        val inputs = listOf(a, b, c)
+        val map = mutableMapOf<Int, Int>()
+        for (input in inputs) {
+            map[input] = (map[input] ?: 0) + 1
+        }
+
+        val entries = map.entries
+
+        when (entries.size) {
+            1 -> {
+                println(entries.first().key.times(1000).plus(10000))
+            }
+
+            2 -> {
+                val value = entries.stream()
+                    .max(Comparator.comparing { (_, value) -> value }).get().key
+                println(value.times(100).plus(1000))
+            }
+
+            else -> {
+                val value = entries.stream()
+                    .max(Comparator.comparing { (key, _) -> key }).get().key
+                println(
+                    value.times(100)
+                )
+            }
+        }
+
+    }
+
 
 }
