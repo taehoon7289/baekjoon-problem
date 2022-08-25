@@ -8,7 +8,7 @@ fun main(args: Array<String>) {
 //    val problem10430 = Problem_10430()
 //    problem10430.execute()
 
-    val problem25304 = Problem_25304()
-    problem25304.execute()
+    val problem4344 = Problem_4344()
+    problem4344.execute()
 
 }
